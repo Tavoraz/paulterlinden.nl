@@ -1,0 +1,39 @@
+{
+  "name": "paulterlinden.nl",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --webpack",
+    "build": "next build --webpack",
+    "start": "next start",
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit",
+    "sanity": "sanity dev --host 0.0.0.0",
+    "sanity:deploy": "sanity deploy"
+  },
+  "dependencies": {
+    "clsx": "^2.1.1",
+    "groq": "^5.13.0",
+    "lucide-react": "^0.577.0",
+    "next": "16.1.6",
+    "next-sanity": "^12.1.0",
+    "nodemailer": "^8.0.1",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "react-markdown": "^10.1.0",
+    "remark-gfm": "^4.0.1",
+    "sanity": "^5.13.0",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/nodemailer": "^7.0.11",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.1.6",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}
