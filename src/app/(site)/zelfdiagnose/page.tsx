@@ -6,7 +6,7 @@ export const revalidate = 120;
 export const metadata = createPageMetadata({
   title: "Zelfdiagnose",
   description:
-    "Zelfdiagnose voor nieuwe managing partners: breng bestuurlijke sterktes en risicogebieden in kaart en start een verdiepend gesprek.",
+    "Kies eerst je persona en doorloop daarna de zelfdiagnose die past bij jouw rol: managing partner, COO, vakgroep- of clientteamleider, of (pre-)partner.",
   path: "/zelfdiagnose",
 });
 

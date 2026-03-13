@@ -507,6 +507,13 @@ button[class*="bg-[var(--accent-600)]"] {
   color: #ffffff !important;
 }
 
+.site-header {
+  position: fixed;
+  inset-inline: 0;
+  top: 0;
+  width: 100%;
+}
+
 .site-main > * {
   animation: page-enter 0.46s ease-out both;
 }

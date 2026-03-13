@@ -89,35 +89,40 @@ export default async function HomePage() {
   return (
     <div className="mx-auto flex w-full max-w-6xl flex-col gap-16 px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
       <section className="shader-ink overflow-hidden rounded-[2rem] border border-[var(--ink-800)] p-4 text-white shadow-2xl sm:p-5 lg:p-6">
-        <div className="grid gap-4 lg:grid-cols-[1.08fr_0.92fr]">
-          <div className="hero-visual-reveal relative min-h-[380px] overflow-hidden rounded-[1.55rem] border border-white/10 bg-[var(--ink-900)] sm:min-h-[440px]">
+        <div className="space-y-4">
+          <div className="hero-visual-reveal relative min-h-[420px] overflow-hidden rounded-[1.6rem] border border-white/10 bg-[var(--ink-900)] sm:min-h-[500px] lg:min-h-[560px]">
             <Image
               src="/media/hero-amstel-1.png"
               alt="Amsterdamse gracht met skyline in de avond"
               fill
               priority
-              sizes="(max-width: 1024px) 100vw, 55vw"
+              sizes="100vw"
               className="object-cover object-center"
             />
-            <div className="absolute inset-0 bg-[linear-gradient(145deg,rgba(18,28,45,0.15)_0%,rgba(18,28,45,0.38)_42%,rgba(18,28,45,0.6)_100%)]" />
+            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(18,28,45,0.04)_0%,rgba(18,28,45,0.2)_42%,rgba(8,14,28,0.82)_100%)]" />
 
-            <div className="hero-overlay-reveal absolute inset-x-4 bottom-4 max-w-2xl rounded-[1.4rem] border border-white/10 bg-[rgba(18,28,45,0.78)] p-6 backdrop-blur">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--paper-300)]">
-                Paul ter Linden
-              </p>
-              <h1 className="mt-3 font-display text-4xl leading-tight sm:text-5xl">
-                {heroContent.title}
-              </h1>
+            <div className="hero-overlay-reveal absolute inset-x-4 bottom-4 sm:inset-x-6 sm:bottom-6 lg:inset-x-8 lg:bottom-8">
+              <div className="max-w-3xl rounded-[1.55rem] border border-white/10 bg-[rgba(10,18,34,0.8)] p-6 shadow-[0_22px_44px_rgba(0,0,0,0.22)] backdrop-blur-md sm:p-8">
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--paper-300)]">
+                  Paul ter Linden
+                </p>
+                <h1 className="mt-3 max-w-2xl font-display text-4xl leading-tight sm:text-5xl lg:text-6xl">
+                  {heroContent.title}
+                </h1>
+              </div>
             </div>
           </div>
 
-          <div className="grid gap-4 lg:grid-rows-[auto_1fr]">
-            <div className="hero-copy-reveal rounded-[1.45rem] border border-white/10 bg-white/96 p-6 text-[var(--ink-900)] shadow-xl">
-              <p className="eyebrow">Hero section</p>
+          <div className="grid gap-4 lg:grid-cols-[1.02fr_0.98fr]">
+            <div
+              className="hero-copy-reveal rounded-[1.45rem] border border-white/10 bg-white/96 p-6 text-[var(--ink-900)] shadow-xl"
+              style={{ animationDelay: "0.5s" }}
+            >
+              <p className="eyebrow">Bestuursadvies</p>
               <p className="mt-3 text-xl font-semibold text-[var(--ink-900)]">
                 {heroContent.subtitle}
               </p>
-              <p className="mt-4 text-base leading-relaxed text-[var(--ink-700)]">
+              <p className="mt-4 max-w-2xl text-base leading-relaxed text-[var(--ink-700)]">
                 {heroContent.intro}
               </p>
               <div className="mt-6 flex flex-wrap gap-3">
@@ -134,40 +139,38 @@ export default async function HomePage() {
               </div>
             </div>
 
-            <div className="grid gap-4 sm:grid-cols-[1.1fr_0.9fr] lg:grid-cols-1">
-              <div className="hero-copy-reveal hero-copy-reveal--late relative min-h-[230px] overflow-hidden rounded-[1.45rem] border border-white/10">
+            <div className="grid gap-4 sm:grid-cols-[1.05fr_0.95fr]">
+              <div
+                className="hero-copy-reveal relative min-h-[240px] overflow-hidden rounded-[1.45rem] border border-white/10"
+                style={{ animationDelay: "0.68s" }}
+              >
                 <Image
                   src="/media/hero-amstel-2.png"
                   alt="Amsterdamse Amstel met passerende boot"
                   fill
                   priority
-                  sizes="(max-width: 1024px) 100vw, 40vw"
+                  sizes="(max-width: 1024px) 100vw, 36vw"
                   className="object-cover object-center"
                 />
-                <div className="absolute inset-0 bg-[linear-gradient(160deg,rgba(18,28,45,0.12)_0%,rgba(18,28,45,0.58)_100%)]" />
-                <div className="absolute inset-x-4 bottom-4 rounded-2xl border border-white/10 bg-[rgba(18,28,45,0.56)] p-4 backdrop-blur-sm">
-                  <p className="text-sm font-semibold uppercase tracking-[0.14em] text-[var(--paper-300)]">
-                    Dynamische start
-                  </p>
-                  <p className="mt-2 text-base text-white/92">
-                    Eerst beeld, dan focus: een hero die snel opent en de foto&apos;s zichtbaarder laat spreken.
-                  </p>
-                </div>
+                <div className="absolute inset-0 bg-[linear-gradient(160deg,rgba(18,28,45,0.08)_0%,rgba(18,28,45,0.62)_100%)]" />
               </div>
 
-              <div className="hero-copy-reveal hero-copy-reveal--late rounded-[1.45rem] border border-white/10 bg-[rgba(247,245,241,0.08)] p-5 backdrop-blur">
-                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--paper-300)]">
+              <div
+                className="hero-copy-reveal rounded-[1.45rem] border border-white/18 bg-[linear-gradient(160deg,rgba(18,28,45,0.84),rgba(18,28,45,0.68))] p-5 shadow-[0_18px_34px_rgba(10,18,34,0.2)] backdrop-blur-md"
+                style={{ animationDelay: "0.82s" }}
+              >
+                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-white/70">
                   Zelftest
                 </p>
                 <p className="mt-3 text-lg font-semibold text-white">
                   Herken je jezelf vooral als managing partner, COO, teamleider of (pre-)partner?
                 </p>
-                <p className="mt-2 text-sm text-white/78">
+                <p className="mt-2 text-sm leading-relaxed text-white/88">
                   Gebruik de persona&apos;s hieronder als vertrekpunt en kies daarna de zelftest die het best past.
                 </p>
                 <Link
                   href="/zelfdiagnose"
-                  className="btn-motion mt-4 inline-flex items-center gap-2 rounded-full border border-white/20 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-white/10"
+                  className="btn-motion mt-4 inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-white/16"
                 >
                   <Compass className="h-4 w-4" />
                   Doe de zelftest
@@ -211,7 +214,7 @@ export default async function HomePage() {
               <InteractiveFlipCard
                 key={segment.id}
                 label={`${segment.title} omdraaien voor meer context`}
-                className="min-h-[340px]"
+                className="min-h-[372px] xl:min-h-[396px]"
                 front={
                   <>
                     <div className="space-y-4">
@@ -228,7 +231,7 @@ export default async function HomePage() {
                         <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[var(--accent-600)]">
                           {art.eyebrow}
                         </p>
-                        <h3 className="text-xl font-semibold text-[var(--ink-900)]">
+                        <h3 className="min-h-[4.2rem] text-xl leading-tight font-semibold text-[var(--ink-900)]">
                           {segment.title}
                         </h3>
                         <p className="text-sm text-[var(--ink-700)]">
