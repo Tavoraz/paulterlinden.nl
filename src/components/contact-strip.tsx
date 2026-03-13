@@ -1,6 +1,7 @@
 import { ArrowRight, CalendarClock, Mail } from "lucide-react";
 import Link from "next/link";
 
+import { primaryCtaHref, primaryCtaLabel } from "@/lib/site-config";
 import type { SiteSettings } from "@/lib/types";
 
 interface ContactStripProps {
@@ -12,7 +13,7 @@ interface ContactStripProps {
 export function ContactStrip({
   settings,
   title = "Wil je verkennen wat dit voor jouw kantoor betekent?",
-  body = "Plan een korte kennismaking. Dan bepalen we samen welke vorm het beste past.",
+  body = "Plan een gesprek. Dan bepalen we samen welke vorm het beste past.",
 }: ContactStripProps) {
   return (
     <section className="shader-surface rounded-xl border border-[var(--ink-300)] bg-white p-6 shadow-sm sm:p-8">
@@ -27,10 +28,10 @@ export function ContactStrip({
         </div>
         <div className="flex flex-wrap gap-2">
           <Link
-            href="/contact"
-            className="btn-motion inline-flex items-center gap-2 rounded-md bg-[var(--ink-900)] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[var(--ink-800)]"
+            href={settings.ctaHref || primaryCtaHref}
+            className="btn-primary"
           >
-            {settings.ctaLabel}
+            {primaryCtaLabel}
             <ArrowRight className="h-4 w-4" />
           </Link>
           <a

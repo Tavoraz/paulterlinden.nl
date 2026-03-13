@@ -18,7 +18,7 @@ export const fallbackSiteSettings: SiteSettings = {
   email: "contact@paulterlinden.nl",
   linkedinUrl: "https://www.linkedin.com/in/paulterlinden/",
   logoPath: "/ptl-logo.png",
-  ctaLabel: "Plan een kennismaking",
+  ctaLabel: "Plan een gesprek",
   ctaHref: "/contact",
 };
 
@@ -28,10 +28,10 @@ export const fallbackHomePage: HomePageContent = {
     description:
       "Voor een bestuur dat het kantoor door roerige tijden leidt. Strategisch advies, teambegeleiding en coaching voor professional service firms.",
   },
-  heroTitle: "Bestuursadviseur voor professional service firms",
-  heroSubtitle: "Voor een bestuur dat het kantoor door roerige tijden leidt.",
+  heroTitle: "Leid je kantoor, leid jezelf",
+  heroSubtitle: "Bestuursadvies voor professional service firms",
   intro:
-    "Soms moet je als kantoorbestuurder concluderen: op deze manier werkt het niet, of het werkt maar verre van ideaal. Ik help je een grote stap voorwaarts te zetten met focus, structuur en uitvoerbare verandering.",
+    "Ik help je een grote stap voorwaarts te zetten met focus, structuur en uitvoerbare verandering.",
   successFactors: [
     {
       title: "Strategie",
@@ -116,7 +116,7 @@ export const fallbackHomePage: HomePageContent = {
     },
   ],
   aboutSnippet:
-    "Na 14 jaar McKinsey en leidinggevende rollen in het bedrijfsleven werkt Paul sinds 2010 als zelfstandig coach, teambegeleider en adviseur voor professional service firms.",
+    "Na 14 jaar McKinsey en leidinggevende rollen in het bedrijfsleven werk ik sinds 2010 zelfstandig als coach, teambegeleider en adviseur voor professional service firms.",
 };
 
 export const fallbackServicesPage: ServicesPageContent = {
@@ -270,10 +270,49 @@ export const fallbackApproachPage: ApproachPageContent = {
     description:
       "De werkwijze van Paul ter Linden: nieuwsgierig en analytisch, helder en interactief, creatief en pragmatisch.",
   },
-  introTitle: "Slim, interactief en uitvoerbaar",
+  introTitle: "Samenwerkingsvormen die passen bij de opgave",
   introBody:
-    "Een aanpak werkt pas als zij past bij jouw context. Daarom combineer ik scherpe analyse met een manier van samenwerken die beweging in het systeem brengt.",
+    "Ik werk in drie vormen: advies, teambegeleiding en coaching. De vorm kies ik niet vooraf dogmatisch, maar op basis van wat jouw opgave nodig heeft.",
   pillars: [
+    {
+      title: "Bestuursadvies",
+      body: "Voor besturen en directies die scherpte willen in koers, besluitvorming, samenwerking en executie.",
+    },
+    {
+      title: "Teambegeleiding",
+      body: "Voor teams die goed willen starten, beter willen schakelen onder druk of patronen willen doorbreken die samenwerking blokkeren.",
+    },
+    {
+      title: "Coaching",
+      body: "Voor professionals die hun rol, gedrag en impact sneller willen laten aansluiten bij een volgende stap.",
+    },
+  ],
+};
+
+export const fallbackAboutPage: AboutPageContent = {
+  seo: {
+  title: "Paul",
+  description:
+    "Over Paul ter Linden: achtergrond, ervaring en manier van werken als coach, teambegeleider en bestuursadviseur.",
+  },
+  introTitle: "Ik ben Paul ter Linden",
+  introBody:
+    "Ik werk met professionals en professional service firms die zichtbaar beter willen presteren en tegelijk een gezonde, duurzame organisatie willen bouwen.",
+  timeline: [
+    {
+      period: "McKinsey & Company",
+      body: "In 14 jaar bij McKinsey ontwikkelde ik een stevige basis in problem solving, strategisch denken, teamleiderschap en clientwerk, met nadruk op financiele dienstverlening.",
+    },
+    {
+      period: "Leiderschapsrollen na McKinsey",
+      body: "Na McKinsey werkte ik als directeur in een internationale serviceomgeving. Daar verschoof mijn focus steeds meer naar mensen, teams en organisatieontwikkeling.",
+    },
+    {
+      period: "Sinds 2010 zelfstandig",
+      body: "Sinds 2010 werk ik zelfstandig als coach, teambegeleider en adviseur. Mijn praktijk richt zich op professionals die willen groeien in verantwoordelijkheid en impact.",
+    },
+  ],
+  stylePillars: [
     {
       title: "Nieuwsgierig en analytisch",
       body: "Ik stel veel vragen, map beginpositie en ambitie, en scheid hoofd- van bijzaken. Probleemstructurering en hypothese-gericht denken zorgen voor scherpte in keuzes.",
@@ -291,32 +330,6 @@ export const fallbackApproachPage: ApproachPageContent = {
       body: "Niet alles tegelijk veranderen. We kiezen de paar interventies die het verschil maken en ontwerpen ze zo dat ze in de praktijk echt vol te houden zijn.",
     },
   ],
-};
-
-export const fallbackAboutPage: AboutPageContent = {
-  seo: {
-    title: "Paul",
-    description:
-      "Over Paul ter Linden: achtergrond, ervaring en manier van werken als coach, teambegeleider en bestuursadviseur.",
-  },
-  introTitle: "Ik ben Paul ter Linden",
-  introBody:
-    "Ik werk met professionals en professional service firms die zichtbaar beter willen presteren en tegelijk een gezonde, duurzame organisatie willen bouwen.",
-  timeline: [
-    {
-      period: "McKinsey & Company",
-      body: "In 14 jaar als consultant ontwikkelde ik een stevige basis in problem solving, strategisch denken, teamleiderschap en clientwerk, met nadruk op financiele dienstverlening.",
-    },
-    {
-      period: "Leiderschapsrollen na McKinsey",
-      body: "Na McKinsey werkte ik als directeur in een internationale serviceomgeving. Daar verschoof mijn focus steeds meer naar mensen, teams en organisatieontwikkeling.",
-    },
-    {
-      period: "Sinds 2010 zelfstandig",
-      body: "Sinds 2010 werk ik zelfstandig als coach, teambegeleider en adviseur. Mijn praktijk richt zich op professionals die willen groeien in verantwoordelijkheid en impact.",
-    },
-  ],
-  stylePillars: fallbackApproachPage.pillars,
 };
 
 export const fallbackContactPage: ContactPageContent = {

@@ -5,9 +5,13 @@ import { Menu } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useEffectEvent, useState } from "react";
 
-import { mainNavigation } from "@/lib/site-config";
+import {
+  mainNavigation,
+  primaryCtaHref,
+  primaryCtaLabel,
+} from "@/lib/site-config";
 import type { SiteSettings } from "@/lib/types";
 
 interface SiteHeaderProps {
@@ -17,10 +21,38 @@ interface SiteHeaderProps {
 export function SiteHeader({ settings }: SiteHeaderProps) {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
+  const [isCompact, setIsCompact] = useState(false);
+
+  const syncHeaderState = useEffectEvent(() => {
+    const nextCompact = window.scrollY > 28;
+
+    setIsCompact((current) =>
+      current === nextCompact ? current : nextCompact,
+    );
+  });
+
+  useEffect(() => {
+    syncHeaderState();
+    window.addEventListener("scroll", syncHeaderState, { passive: true });
+
+    return () => window.removeEventListener("scroll", syncHeaderState);
+  }, []);
 
   return (
-    <header className="shader-ink sticky top-0 z-50 border-b border-white/10 bg-[var(--ink-950)]/95 backdrop-blur">
-      <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
+    <header
+      className={clsx(
+        "site-header shader-ink sticky top-0 z-50 border-b border-white/10 bg-[var(--ink-950)]/92 backdrop-blur transition-[box-shadow,background-color] duration-300",
+        isCompact
+          ? "shadow-[0_12px_28px_rgba(18,28,45,0.18)]"
+          : "shadow-[0_18px_36px_rgba(18,28,45,0.08)]",
+      )}
+    >
+      <div
+        className={clsx(
+          "mx-auto flex w-full max-w-6xl items-center justify-between gap-4 px-4 transition-[padding,min-height] duration-300 sm:px-6 lg:px-8",
+          isCompact ? "min-h-[72px] py-3" : "min-h-[112px] py-5",
+        )}
+      >
         <Link
           href="/"
           className="flex items-center gap-3"
@@ -29,9 +61,13 @@ export function SiteHeader({ settings }: SiteHeaderProps) {
           <Image
             src={settings.logoPath}
             alt={settings.siteName}
-            width={142}
-            height={28}
+            width={240}
+            height={48}
             priority
+            className={clsx(
+              "h-auto w-[176px] transition-[width] duration-300 sm:w-[208px]",
+              isCompact ? "lg:w-[172px]" : "lg:w-[252px]",
+            )}
           />
         </Link>
 
@@ -47,7 +83,10 @@ export function SiteHeader({ settings }: SiteHeaderProps) {
           Menu
         </button>
 
-        <nav className="hidden items-center gap-1 md:flex" aria-label="Hoofdmenu">
+        <nav
+          className="hidden items-center gap-1 md:flex"
+          aria-label="Hoofdmenu"
+        >
           {mainNavigation.map((item) => {
             const active = pathname === item.href;
 
@@ -57,7 +96,7 @@ export function SiteHeader({ settings }: SiteHeaderProps) {
                 href={item.href}
                 aria-current={active ? "page" : undefined}
                 className={clsx(
-                  "nav-link rounded-md px-3 py-2 text-sm font-semibold transition-colors",
+                  "nav-link rounded-full px-3 py-2 text-sm font-semibold transition-colors",
                   active
                     ? "bg-white/20 !text-white shadow-[inset_0_0_0_1px_rgba(255,255,255,0.35)]"
                     : "hover:bg-white/12",
@@ -67,11 +106,8 @@ export function SiteHeader({ settings }: SiteHeaderProps) {
               </Link>
             );
           })}
-          <Link
-            href={settings.ctaHref}
-            className="btn-motion ml-2 rounded-md bg-[var(--accent-500)] px-4 py-2 text-sm font-semibold !text-white transition-colors hover:bg-[var(--accent-600)]"
-          >
-            {settings.ctaLabel}
+          <Link href={settings.ctaHref || primaryCtaHref} className="btn-primary ml-2">
+            {primaryCtaLabel}
           </Link>
         </nav>
       </div>
@@ -83,7 +119,10 @@ export function SiteHeader({ settings }: SiteHeaderProps) {
           isOpen ? "max-h-96" : "max-h-0",
         )}
       >
-        <nav className="mx-auto flex w-full max-w-6xl flex-col px-4 py-3 sm:px-6" aria-label="Mobiel menu">
+        <nav
+          className="mx-auto flex w-full max-w-6xl flex-col px-4 py-3 sm:px-6"
+          aria-label="Mobiel menu"
+        >
           {mainNavigation.map((item) => {
             const active = pathname === item.href;
 
@@ -93,7 +132,7 @@ export function SiteHeader({ settings }: SiteHeaderProps) {
                 href={item.href}
                 aria-current={active ? "page" : undefined}
                 className={clsx(
-                  "nav-link rounded-md px-3 py-2 text-sm font-semibold transition-colors",
+                  "nav-link rounded-xl px-3 py-2 text-sm font-semibold transition-colors",
                   active
                     ? "bg-white/20 !text-white shadow-[inset_0_0_0_1px_rgba(255,255,255,0.35)]"
                     : "hover:bg-white/12",
@@ -105,11 +144,11 @@ export function SiteHeader({ settings }: SiteHeaderProps) {
             );
           })}
           <Link
-            href={settings.ctaHref}
-            className="btn-motion mt-2 rounded-md bg-[var(--accent-500)] px-4 py-2 text-center text-sm font-semibold !text-white transition-colors hover:bg-[var(--accent-600)]"
+            href={settings.ctaHref || primaryCtaHref}
+            className="btn-primary mt-2 justify-center"
             onClick={() => setIsOpen(false)}
           >
-            {settings.ctaLabel}
+            {primaryCtaLabel}
           </Link>
         </nav>
       </div>

@@ -166,6 +166,39 @@ button[class*="bg-[var(--accent-600)]"] {
   }
 }
 
+@keyframes hero-reveal {
+  from {
+    opacity: 0;
+    transform: scale(0.985) translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes hero-overlay-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-copy-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @keyframes shader-drift {
   0% {
     transform: translate3d(-8%, -4%, 0) scale(1);
@@ -443,6 +476,28 @@ button[class*="bg-[var(--accent-600)]"] {
   box-shadow: 0 10px 18px rgba(18, 28, 45, 0.16);
 }
 
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 999px;
+  background: var(--accent-500);
+  padding: 0.8rem 1.25rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #ffffff !important;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    background-color 180ms ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  background: var(--accent-600);
+  box-shadow: 0 12px 24px rgba(18, 28, 45, 0.18);
+}
+
 .nav-link {
   color: rgba(247, 245, 241, 0.94) !important;
   letter-spacing: 0.01em;
@@ -514,6 +569,98 @@ button[class*="bg-[var(--accent-600)]"] {
   animation:
     hero-pan 18s ease-in-out infinite,
     hero-fade-b 18s ease-in-out infinite;
+}
+
+.hero-visual-reveal {
+  animation: hero-reveal 0.72s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.hero-overlay-reveal {
+  animation: hero-overlay-in 0.58s cubic-bezier(0.2, 0.8, 0.2, 1) 140ms both;
+}
+
+.hero-copy-reveal {
+  animation: hero-copy-in 0.56s cubic-bezier(0.2, 0.8, 0.2, 1) 320ms both;
+}
+
+.hero-copy-reveal--late {
+  animation-delay: 420ms;
+}
+
+.section-shell {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  border-radius: 1.5rem;
+  border: 1px solid var(--section-border, var(--ink-300));
+  background:
+    linear-gradient(160deg, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.9)),
+    var(--section-surface, #ffffff);
+  box-shadow: 0 16px 32px rgba(18, 28, 45, 0.08);
+}
+
+.section-shell::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 12% 14%, var(--section-soft, rgba(171, 69, 63, 0.12)), transparent 42%),
+    radial-gradient(circle at 88% 84%, rgba(18, 28, 45, 0.08), transparent 44%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.section-shell::after {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--section-accent, var(--accent-500)), transparent 88%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.section-shell > * {
+  position: relative;
+  z-index: 2;
+}
+
+.flip-card {
+  perspective: 1600px;
+}
+
+.flip-card__inner {
+  position: relative;
+  display: block;
+  height: 100%;
+  min-height: inherit;
+  transform-style: preserve-3d;
+  transition: transform 560ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.flip-card__inner.is-flipped {
+  transform: rotateY(180deg);
+}
+
+.flip-card__face {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  backface-visibility: hidden;
+  border-radius: 1.25rem;
+  border: 1px solid rgba(49, 67, 95, 0.12);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.9)),
+    rgba(255, 255, 255, 0.92);
+  padding: 1.25rem;
+  box-shadow: 0 14px 28px rgba(18, 28, 45, 0.08);
+}
+
+.flip-card__face--back {
+  transform: rotateY(180deg);
 }
 
 .avi-mascot {
@@ -848,6 +995,10 @@ button[class*="bg-[var(--accent-600)]"] {
   .hero-frame,
   .hero-frame--a,
   .hero-frame--b,
+  .hero-visual-reveal,
+  .hero-overlay-reveal,
+  .hero-copy-reveal,
+  .flip-card__inner,
   .avi-mascot,
   .avi-mascot__eye,
   .avi-mascot__cheek,

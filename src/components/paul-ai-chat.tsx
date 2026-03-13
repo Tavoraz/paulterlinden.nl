@@ -7,6 +7,7 @@ import { FormEvent, useEffect, useRef, useState } from "react";
 
 import { AviMascot } from "@/components/avi-mascot";
 import { ChatMarkdown } from "@/components/chat-markdown";
+import { primaryCtaLabel } from "@/lib/page-data";
 
 type ChatRole = "assistant" | "user";
 
@@ -152,10 +153,10 @@ export function PaulAiChat() {
 
         <Link
           href="/contact"
-          className="btn-motion mt-6 inline-flex items-center gap-2 rounded-md bg-[var(--ink-900)] px-4 py-2 text-sm font-semibold text-white hover:bg-[var(--ink-800)]"
+          className="btn-primary mt-6"
         >
           <Sparkles className="h-4 w-4" />
-          Plan een kennismaking
+          {primaryCtaLabel}
         </Link>
       </aside>
 

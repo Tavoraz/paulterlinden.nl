@@ -74,7 +74,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
             </div>
           </div>
           <p className="mt-4 text-sm text-[var(--ink-700)]">
-            Plan een kennismaking met Paul ter Linden voor een eerste verkenning van jouw vraagstuk.
+            Plan een gesprek met Paul ter Linden voor een eerste verkenning van jouw vraagstuk.
           </p>
         </section>
 
